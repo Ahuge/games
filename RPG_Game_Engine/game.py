@@ -20,6 +20,12 @@ clock = pygame.time.Clock()
 pygame.font.init()
 font = pygame.font.SysFont('comicsans', 75)
 
+
+def construct_level(game_board, things):
+    for game_thing in things:
+        game_thing.draw(game_board)
+
+
 class Game:
 
     # Typical rate of 60, equivalent to FPS
