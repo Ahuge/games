@@ -54,11 +54,6 @@ class Game:
         enemy_1 = EnemyCharacter('enemy.png', self.width - 40, 400, 50, 50)
         enemy_1.SPEED *= level_speed
         
-        # Create another enemy
-        enemy_2 = EnemyCharacter('enemy.png', 20, 200, 50, 50)
-        enemy_2.SPEED *= level_speed
-
-        
         treasure = GameObject('treasure.png', 375, 50, 50, 50)
 
         # Main game loop, used to update all gameplay such as movement, checks and graphics
@@ -105,14 +100,6 @@ class Game:
             enemy_0.move(self.width)
             enemy_0.draw(self.game_screen)
 
-            # Move and draw more enemies as reach higher levels
-            if level_speed > 2:
-                enemy_1.move(self.width)
-                enemy_1.draw(self.game_screen)
-            if level_speed > 4:
-                enemy_2.move(self.width)
-                enemy_2.draw(self.game_screen)
-
             # End game if collision with enemy/treasure
             # Close game if lose
             # Restart game loop if win
@@ -145,7 +132,6 @@ class Game:
 
 # Generic game object class to be subclassed by other objects in the game
 class GameObject:
-
     def __init__(self, image_path, x, y, width, height):
 
         # Load the player image from file directory
