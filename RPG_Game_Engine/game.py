@@ -96,17 +96,19 @@ class Game:
             self.game_screen.blit(self.image, (0, 0))
             
 
-            # Draw the treasure
-            treasure.draw(self.game_screen)
-
             # Update the player position
             player_character.move(direction, self.height)
-            # Draw the player at the new position
-            player_character.draw(self.game_screen)
 
             # Move and draw enemy character
-            enemy_0.move(self.width)
-            enemy_0.draw(self.game_screen)
+            enemy_0.move(self.width)            
+
+            level_objects = [treasure, player_character, enemy_0]
+            construct_level(self.game_screen, level_objects)
+            # Draw the treasure
+            # treasure.draw(self.game_screen)
+            # Draw the player at the new position
+            # player_character.draw(self.game_screen)
+            # enemy_0.draw(self.game_screen)
 
             # End game if collision with enemy/treasure
             # Close game if lose
